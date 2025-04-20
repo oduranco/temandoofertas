@@ -56,11 +56,23 @@
       justify-content: space-between;
       align-items: center;
       background-color: var(--filter-bg);
+      flex-wrap: wrap;
+      gap: 1rem;
     }
     .masonry {
-      column-count: 3;
+      column-count: 1;
       column-gap: 1rem;
       padding: 1rem;
+    }
+    @media (min-width: 768px) {
+      .masonry {
+        column-count: 2;
+      }
+    }
+    @media (min-width: 1024px) {
+      .masonry {
+        column-count: 3;
+      }
     }
     .card {
       background-color: var(--card-bg);
@@ -123,20 +135,16 @@
       text-decoration: none;
       z-index: 999;
     }
-    @media (max-width: 768px) {
-      .masonry {
-        column-count: 1;
-      }
-    }
   </style>
 </head>
 <body>
   <header>
     <h1>Te Mando Ofertas</h1>
     <nav>
-      <a href="#">Categorías</a>
-      <a href="#">Populares</a>
-      <a href="#">Ayuda</a>
+      <a href="#">Tecnología</a>
+      <a href="#">Moda</a>
+      <a href="#">Hogar</a>
+      <a href="#">Regalos</a>
     </nav>
   </header>
 
@@ -160,7 +168,34 @@
   </div>
 
   <div class="masonry">
-    <!-- Las tarjetas se mantienen igual -->
+    <div class="card">
+      <img src="https://via.placeholder.com/400x300" alt="Oferta 1" />
+      <div class="card-content">
+        <h3>Pack VPN + Streaming</h3>
+        <p>Protégete y accede a más contenido. Incluye 3 meses gratis.</p>
+        <div class="actions">
+          <a href="#" class="button">Ver oferta</a>
+          <div class="meta-actions">
+            <span>🔖</span>
+            <span>📤</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://via.placeholder.com/400x500" alt="Oferta 2" />
+      <div class="card-content">
+        <h3>Kit argentino 🇦🇷</h3>
+        <p>Incluye mate, camiseta y bandera. Ideal para regalar o recordar tu tierra.</p>
+        <div class="actions">
+          <a href="#" class="button">Ver oferta</a>
+          <div class="meta-actions">
+            <span>🔖</span>
+            <span>📤</span>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
   <a href="https://t.me/TeMandoOfertas" target="_blank" class="telegram-btn">Unirme al canal</a>
