@@ -4,68 +4,191 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Te Mando Ofertas</title>
-  <meta name="impact-site-verification" value="23825933-11d5-458b-8158-03183c0be1b1" />
   <style>
     body {
       margin: 0;
-      background-color: #0f0f0f;
       font-family: 'Helvetica Neue', sans-serif;
-      color: #f4f4f4;
+      background-color: #0f0f0f;
+      color: #fff;
+    }
+    header {
+      background-color: #1a1a1a;
+      padding: 1rem 2rem;
       display: flex;
-      flex-direction: column;
+      justify-content: space-between;
       align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      text-align: center;
-      padding: 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
-
-    h1 {
-      font-size: 3rem;
-      line-height: 1.1;
-      color: #f4f4f4;
+    header h1 {
+      font-size: 1.5rem;
+      margin: 0;
     }
-
-    .highlight {
+    nav a {
+      color: #f08329;
+      margin-left: 1rem;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .filters {
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #121212;
+    }
+    .masonry {
+      column-count: 3;
+      column-gap: 1rem;
+      padding: 1rem;
+    }
+    .card {
+      background-color: #1e1e1e;
+      display: inline-block;
+      margin: 0 0 1rem;
+      width: 100%;
+      border-radius: 8px;
+      overflow: hidden;
+      break-inside: avoid;
+    }
+    .card img {
+      width: 100%;
+      display: block;
+    }
+    .card-content {
+      padding: 1rem;
+    }
+    .card-content h3 {
+      margin-top: 0;
       color: #f08329;
     }
-
-    p {
-      font-size: 1.2rem;
-      max-width: 600px;
-      margin: 1rem auto 2rem;
-      color: #c9c9c9;
+    .card-content p {
+      color: #ccc;
+      font-size: 0.9rem;
     }
-
-    a.button {
-      display: inline-block;
+    .actions {
+      margin-top: 0.5rem;
+      display: flex;
+      justify-content: space-between;
+    }
+    .button {
       background-color: #f08329;
       color: #000;
-      text-decoration: none;
-      padding: 0.75rem 1.5rem;
+      padding: 0.5rem 1rem;
       border-radius: 6px;
       font-weight: bold;
-      transition: background 0.3s;
+      text-decoration: none;
+      font-size: 0.9rem;
     }
-
-    a.button:hover {
-      background-color: #d46f1d;
+    .meta-actions span {
+      font-size: 1.2rem;
+      margin-left: 0.5rem;
+      cursor: pointer;
     }
-
-    footer {
-      margin-top: 4rem;
-      font-size: 0.8rem;
-      color: #777;
+    .telegram-btn {
+      position: fixed;
+      bottom: 1rem;
+      right: 1rem;
+      background-color: #229ED9;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 999px;
+      font-weight: bold;
+      text-decoration: none;
+      z-index: 999;
+    }
+    @media (max-width: 768px) {
+      .masonry {
+        column-count: 1;
+      }
     }
   </style>
 </head>
 <body>
-  <h1><span class="highlight">Te Mando</span><br />Ofertas</h1>
-  <p>Promociones, herramientas digitales y descuentos para ahorrar, proteger tu privacidad y mejorar tu vida digital.</p>
-  <a class="button" href="https://t.me/TeMandoOfertas" target="_blank">Unite al canal en Telegram</a>
+  <header>
+    <h1>Te Mando Ofertas</h1>
+    <nav>
+      <a href="#">Categorías</a>
+      <a href="#">Populares</a>
+      <a href="#">Ayuda</a>
+    </nav>
+  </header>
 
-  <footer>
-    &copy; 2025 Te Mando Ofertas
-  </footer>
+  <div class="filters">
+    <div>
+      <label for="pais">Filtrar por país:</label>
+      <select id="pais">
+        <option value="todos">Todos</option>
+        <option value="arg">Argentina</option>
+        <option value="col">Colombia</option>
+        <option value="mex">México</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="masonry">
+    <div class="card">
+      <img src="https://via.placeholder.com/400x250.png?text=NordVPN+vs+ExpressVPN" alt="VPN Comparativa">
+      <div class="card-content">
+        <h3>NordVPN vs ExpressVPN</h3>
+        <p>¿Cuál es mejor para desbloquear contenido y proteger tu privacidad? Mira esta comparativa.</p>
+        <div class="actions">
+          <a href="#" class="button">Ver oferta</a>
+          <div class="meta-actions">
+            <span>💾</span>
+            <span>📤</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://via.placeholder.com/400x500.png?text=Set+Argentino" alt="Set argentino">
+      <div class="card-content">
+        <h3>Kit Nostalgia Argentina</h3>
+        <p>Mate, bandera, camiseta. Todo lo que necesitás para sentirte en casa.</p>
+        <div class="actions">
+          <a href="#" class="button">Ver paquete</a>
+          <div class="meta-actions">
+            <span>💾</span>
+            <span>📤</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://via.placeholder.com/400x300.png?text=Adidas" alt="Adidas">
+      <div class="card-content">
+        <h3>Ofertas Adidas</h3>
+        <p>Zapatillas, ropa deportiva y más con descuentos para latinos en USA.</p>
+        <div class="actions">
+          <a href="#" class="button">Ver colección</a>
+          <div class="meta-actions">
+            <span>💾</span>
+            <span>📤</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://via.placeholder.com/400x350.png?text=Canva+Pro" alt="Canva">
+      <div class="card-content">
+        <h3>Canva Pro para estudiantes</h3>
+        <p>Diseñá todo lo que querés con acceso completo y legal.</p>
+        <div class="actions">
+          <a href="#" class="button">Probar Canva</a>
+          <div class="meta-actions">
+            <span>💾</span>
+            <span>📤</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <a href="https://t.me/TeMandoOfertas" target="_blank" class="telegram-btn">Unirme al canal</a>
 </body>
 </html>
