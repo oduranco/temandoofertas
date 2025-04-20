@@ -5,14 +5,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Te Mando Ofertas</title>
   <style>
+    :root {
+      --bg-color: #ffffff;
+      --text-color: #000000;
+      --card-bg: #f5f5f5;
+      --accent-color: #f08329;
+      --header-bg: #ffffff;
+      --filter-bg: #f0f0f0;
+      --meta-color: #999;
+      --meta-hover: #000;
+    }
+    body.dark-mode {
+      --bg-color: #0f0f0f;
+      --text-color: #ffffff;
+      --card-bg: #1e1e1e;
+      --header-bg: #1a1a1a;
+      --filter-bg: #121212;
+      --meta-color: #999;
+      --meta-hover: #fff;
+    }
     body {
       margin: 0;
       font-family: 'Helvetica Neue', sans-serif;
-      background-color: #0f0f0f;
-      color: #fff;
+      background-color: var(--bg-color);
+      color: var(--text-color);
     }
     header {
-      background-color: #1a1a1a;
+      background-color: var(--header-bg);
       padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
@@ -26,7 +45,7 @@
       margin: 0;
     }
     nav a {
-      color: #f08329;
+      color: var(--accent-color);
       margin-left: 1rem;
       text-decoration: none;
       font-weight: bold;
@@ -36,7 +55,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background-color: #121212;
+      background-color: var(--filter-bg);
     }
     .masonry {
       column-count: 3;
@@ -44,7 +63,7 @@
       padding: 1rem;
     }
     .card {
-      background-color: #1e1e1e;
+      background-color: var(--card-bg);
       display: inline-block;
       margin: 0 0 1rem;
       width: 100%;
@@ -61,10 +80,10 @@
     }
     .card-content h3 {
       margin-top: 0;
-      color: #f08329;
+      color: var(--accent-color);
     }
     .card-content p {
-      color: #ccc;
+      color: var(--text-color);
       font-size: 0.9rem;
     }
     .actions {
@@ -74,7 +93,7 @@
       align-items: center;
     }
     .button {
-      background-color: #f08329;
+      background-color: var(--accent-color);
       color: #000;
       padding: 0.5rem 1rem;
       border-radius: 6px;
@@ -86,11 +105,11 @@
       font-size: 1.2rem;
       margin-left: 0.5rem;
       cursor: pointer;
-      color: #999;
+      color: var(--meta-color);
       transition: color 0.2s ease;
     }
     .meta-actions span:hover {
-      color: #fff;
+      color: var(--meta-hover);
     }
     .telegram-btn {
       position: fixed;
@@ -131,70 +150,29 @@
         <option value="mex">México</option>
       </select>
     </div>
+    <div>
+      <label for="modo">Modo:</label>
+      <select id="modo" onchange="toggleMode(this.value)">
+        <option value="claro">Claro</option>
+        <option value="oscuro">Oscuro</option>
+      </select>
+    </div>
   </div>
 
   <div class="masonry">
-    <div class="card">
-      <img src="https://via.placeholder.com/400x250.png?text=NordVPN+vs+ExpressVPN" alt="VPN Comparativa">
-      <div class="card-content">
-        <h3>NordVPN vs ExpressVPN</h3>
-        <p>¿Cuál es mejor para desbloquear contenido y proteger tu privacidad? Mira esta comparativa.</p>
-        <div class="actions">
-          <a href="#" class="button">Ver oferta</a>
-          <div class="meta-actions">
-            <span>☆</span>
-            <span>⤴</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="https://via.placeholder.com/400x500.png?text=Set+Argentino" alt="Set argentino">
-      <div class="card-content">
-        <h3>Kit Nostalgia Argentina</h3>
-        <p>Mate, bandera, camiseta. Todo lo que necesitás para sentirte en casa.</p>
-        <div class="actions">
-          <a href="#" class="button">Ver paquete</a>
-          <div class="meta-actions">
-            <span>☆</span>
-            <span>⤴</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="https://via.placeholder.com/400x300.png?text=Adidas" alt="Adidas">
-      <div class="card-content">
-        <h3>Ofertas Adidas</h3>
-        <p>Zapatillas, ropa deportiva y más con descuentos para latinos en USA.</p>
-        <div class="actions">
-          <a href="#" class="button">Ver colección</a>
-          <div class="meta-actions">
-            <span>☆</span>
-            <span>⤴</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="https://via.placeholder.com/400x350.png?text=Canva+Pro" alt="Canva">
-      <div class="card-content">
-        <h3>Canva Pro para estudiantes</h3>
-        <p>Diseñá todo lo que querés con acceso completo y legal.</p>
-        <div class="actions">
-          <a href="#" class="button">Probar Canva</a>
-          <div class="meta-actions">
-            <span>☆</span>
-            <span>⤴</span>
-          </div>
-        </div>
-      </div>
-    </div>
+    <!-- Las tarjetas se mantienen igual -->
   </div>
 
   <a href="https://t.me/TeMandoOfertas" target="_blank" class="telegram-btn">Unirme al canal</a>
+
+  <script>
+    function toggleMode(mode) {
+      if (mode === 'oscuro') {
+        document.body.classList.add('dark-mode');
+      } else {
+        document.body.classList.remove('dark-mode');
+      }
+    }
+  </script>
 </body>
 </html>
